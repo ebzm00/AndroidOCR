@@ -18,12 +18,14 @@
             android:layout_width="150dp"
             android:layout_height="80dp"
             android:layout_below="@+id/avatars"
-            android:text="Picture"
+            android:text="갤러리"
+            android:background="#2196F3"
             android:layout_marginRight="110dp" />
 
 
         <Button
-            android:text="CAMERA"
+            android:text="카메라"
+            android:background="#2196F3"
             android:layout_width="150dp"
             android:layout_height="80dp"
             android:layout_below="@+id/avatars"
