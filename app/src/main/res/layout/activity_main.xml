@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="200dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:id="@+id/avatars" />
+
+        <Button
+            android:id="@+id/picture"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/avatars"
+            android:text="Picture"
+            android:layout_marginRight="110dp" />
+
+
+        <Button
+            android:text="CAMERA"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/avatars"
+            android:layout_marginLeft="260dp"
+            android:id="@+id/camera" />
+
+</RelativeLayout>
