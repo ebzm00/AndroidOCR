@@ -17,8 +17,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.app.ActivityCompat
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     fun CallCamera() {
         if(checkPermission(CAMERA,CAMERA_CODE) && checkPermission(STORAGE,STORAGE_CODE)) {
             val itt = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(itt,CAMERA_CODE)
+            startActivityForResult(itt, CAMERA_CODE, null)
         }
     }
 
@@ -162,5 +162,5 @@ class MainActivity : AppCompatActivity() {
             itt.type = MediaStore.Images.Media.CONTENT_TYPE
             startActivityForResult(itt,STORAGE_CODE)
         }
+      }
     }
-}
