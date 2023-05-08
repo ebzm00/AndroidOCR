@@ -3,9 +3,11 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+
 android {
     namespace 'com.example.ocrtestproject'
     compileSdk 33
+
 
     defaultConfig {
         applicationId "com.example.ocrtestproject"
@@ -64,4 +66,6 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    implementation 'com.rmtheis:tess-two:9.1.0' // 테서렉트 OCR
+
 }

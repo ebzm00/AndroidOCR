@@ -3,11 +3,12 @@ package com.example.ocrtestproject
 
 import android.Manifest
 import android.app.Activity
+import android.app.Application
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Camera
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +17,15 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.compose.setContent
 import androidx.core.content.ContextCompat
 import androidx.core.app.ActivityCompat
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
+
+
+class OpenCVActivity : Application() {
+
+}
 
 class MainActivity : AppCompatActivity() {
     
@@ -29,6 +34,8 @@ class MainActivity : AppCompatActivity() {
     val STORAGE = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
     val CAMERA_CODE = 98
     val STORAGE_CODE = 99
+
+
 
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     //카메라 권한, 저장소 권한
     //요청 권한
@@ -131,6 +140,11 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         val imageView = findViewById<ImageView>(R.id.avatars)
+//        //이미지뷰에서 비트맵 가져오기
+//        val bitmap = (imageView.drawable as BitmapDrawable).bitmap
+//        // 비트맵을 Mat 형식으로 변환
+//        val mat = Mat()
+//        Utils.bitmapToMat(bitmap,mat)
 
         if (resultCode == Activity.RESULT_OK) {
             when(requestCode) {
@@ -139,6 +153,7 @@ class MainActivity : AppCompatActivity() {
                         val img = data?.extras?.get("data") as Bitmap
                         val uri = savefile(RandomFileName(), "image/jpeg", img)
                         imageView.setImageURI(uri)
+
                     }
                 }
                 STORAGE_CODE -> {
@@ -148,7 +163,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     // 파일명을 날짜 저장
     fun RandomFileName() : String{
         val fileName = SimpleDateFormat("yyyyMMddHHmmss").format(System.currentTimeMillis())
